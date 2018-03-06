@@ -5,4 +5,4 @@ module SettingType where
 data Setting = Setting String String deriving (Show,Eq)
 
 asCode :: Setting -> String
-asCode (Setting f i) = "arr "++f++" -< "++i
+asCode (Setting f i) = "Setting \""++f++"\" \""++i++"\" -> "++"arr "++f++" -< "++i
