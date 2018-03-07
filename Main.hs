@@ -9,6 +9,7 @@ import Control.Monad
 
 import ParametricController
 import SettingType
+import FormatInput
 
 -- Settings of type SF _ (Double,Double)
 allDoubleInputs = ["angle","trackPos","speedY","speedX","speedZ","rpm"]
@@ -34,13 +35,16 @@ fst3 (x,y,z) = x
 
 main :: IO()
 main = do
-  randomOrderTestCases <- shuffle allThreePairs
+  {-randomOrderTestCases <- shuffle allThreePairs
   mapM getDataPoint randomOrderTestCases
-  return ()
+  return ()-}
+  formatInput "trainingSetGen/"
+  --formatInput "test/"
 
 getDataPoint threePair = do
   (cS,dS) <- runController threePair
-  writeFile ("trainingSetGen/"++(filter (\c-> c/=' ' && c/='\"' ) $ show threePair)) ((show threePair)++"\n"++(show cS))
+  print cS
+  --writeFile ("trainingSetGen/"++(filter (\c-> c/=' ' && c/='\"' ) $ show threePair)) ((show threePair)++"\n"++(show cS))
   return cS
   
 

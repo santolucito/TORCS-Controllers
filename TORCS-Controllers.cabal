@@ -25,7 +25,9 @@ executable Learner
                        Yampa,
                        TORCS >= 0.1.1,
                        random,
-                       array
+                       array,
+                       directory,
+                       split
 
 
   ghc-options: 
